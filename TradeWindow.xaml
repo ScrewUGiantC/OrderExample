@@ -1,0 +1,94 @@
+﻿<Window x:Class="OrderExample.TradeWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:OrderExample"
+        mc:Ignorable="d"
+        Title="TradeWindow" Height="240" Width="300">
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="Auto"/>
+        </Grid.RowDefinitions>
+        <StackPanel Orientation="Vertical">
+            <StackPanel Orientation="Horizontal"
+                        >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Symbol" Margin="3"/>
+                    <TextBox Width="60" Margin="3"
+                             x:Name="SymbolTb"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Account" Margin="3"/>
+                    <TextBox Width="90" Margin="3"
+                             x:Name="AccountTb"/>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                        >
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Qty" Margin="3"/>
+                    <TextBox Width="60" Margin="3"
+                             x:Name="QtyTb"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="TIF" Margin="3"/>
+                    <ComboBox SelectedIndex="0"
+                              Margin="3"
+                              x:Name="TifCb">
+                        <TextBlock Text="ROD"/>
+                        <TextBlock Text="IOC"/>
+                        <TextBlock Text="FOK"/>
+                    </ComboBox>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Type" Margin="3"/>
+                    <ComboBox SelectedIndex="0" Margin="3"
+                              x:Name="OrderTypeCb">
+                        <TextBlock Text="現"/>
+                        <TextBlock Text="資"/>
+                        <TextBlock Text="券"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+            <StackPanel Orientation="Horizontal"
+                       >
+
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="Price" Margin="3"/>
+                    <TextBox Width="60" Margin="3"
+                             x:Name="PriceTb"/>
+                </StackPanel>
+                <StackPanel Orientation="Horizontal">
+                    <TextBlock Text="PriceType" Margin="3"/>
+                    <ComboBox SelectedIndex="0"
+                              x:Name="PriceTypeCb">
+                        <TextBlock Text="Market"/>
+                        <TextBlock Text="Limit"/>
+                    </ComboBox>
+                </StackPanel>
+            </StackPanel>
+        </StackPanel>
+        
+
+        <StackPanel Grid.Row="1" Margin="6">
+            <TextBlock Text="T30 not found"
+                       FontSize="32"
+                       Foreground="DarkGray"/>
+            <TextBlock Text="Quote not found"
+                       FontSize="32"
+                       Foreground="DarkGray"/>
+        </StackPanel>
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+            
+            <Button x:Name="BuyBtn" Content="B" Margin="6" Click="BuyBtn_OnClick"/>
+            <Button x:Name="SellBtn" Content="S" Margin="6" Grid.Column="1" Click="SellBtn_OnClick"/>
+        </Grid>
+    </Grid>
+</Window>
